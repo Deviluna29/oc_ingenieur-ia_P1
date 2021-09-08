@@ -2,6 +2,10 @@
 
 Projet 1 - Découvrez le métier d'ingénieur IA
 
+## Configuration
+
+Renommer le fichier `.env_sample` en `.env` et renseigner les valeurs des variables d'environnement
+
 ## Utilisation
 
 ### Détecter la langue d'un texte aléatoire

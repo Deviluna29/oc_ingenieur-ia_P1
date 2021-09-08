@@ -2,14 +2,17 @@
 
 import argparse
 from random import randint
+from dotenv import load_dotenv
 
 import csv
 import requests
 import uuid
+import os
 
-# Paramétrer ici la Clé d'auhentification et le Endpoint
-subscription_key = "YOUR_KEY"
-endpoint = "https://api.cognitive.microsofttranslator.com"
+load_dotenv()
+# Récupérer les valeurs des variables d'environnement pour l'authentification
+subscription_key = os.getenv("MICROSOFT_TRANSLATOR_SUBSCRIPTION_KEY")
+endpoint = os.getenv("ENDPOINT_MICROSOFT_TRANSLATOR_URL")
 path = '/detect'
 
 constructed_url = endpoint + path
@@ -21,6 +24,7 @@ populars_languages = ['eng', 'zho', 'hin', 'spa', 'fra', 'ara']
 def define_text(text: str):
     language_expected = None
 
+    # Récupère un texte aléatoire dans le fichier de data ainsi que sa langue associée
     if not text:
         with open("data/x_train.txt", 'r', encoding="utf-8") as text_file:
             text_data = text_file.readlines()
